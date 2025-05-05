@@ -21,7 +21,7 @@ The ecommerce platform is integrated with Stripe payments, allowing customers to
 ### Usage
 To utilize this project:
 
-- Clone the Repository: git clone https://github.com/farad-alam/Multi-Vendor-Ecommerce.git
+- Clone the Repository: https://github.com/Sengwamana/-Bazaaro-A-Vendor-Driven-eCommerce-System.git
 - Installation: Install the required dependencies. Set up the database and migrations.
 - Configuration: Configure settings such as Stripe API keys, site settings, and email configurations.
 - Run the Server: Launch the Django server to explore the functionalities.
