@@ -1,4 +1,5 @@
-# settings bruh
+# settings bruh 
+#ase we mwe ko mbona byakomeje kugorna
 """
 Django settings for ecommerce project.
 
