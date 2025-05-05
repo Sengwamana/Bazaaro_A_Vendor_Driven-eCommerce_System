@@ -1,4 +1,4 @@
-# Multi Vendor Ecommerce Project
+# Multi Vendor Ecommerce Projec
 
 Welcome to our Multi Vendor Ecommerce project! This repository contains a powerful platform built on Django that enables multiple user roles and facilitates a seamless shopping experience.
 
