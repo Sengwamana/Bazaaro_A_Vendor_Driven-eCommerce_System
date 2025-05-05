@@ -1,3 +1,4 @@
+# settings bruh
 """
 Django settings for ecommerce project.
 
