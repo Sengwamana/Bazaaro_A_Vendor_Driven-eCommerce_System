@@ -1,0 +1,16 @@
+{% extends "accounts/user/dashboard-base.html" %}
+
+
+{% block dashboard-content %}
+<div class="container mt-10">
+    <div class="oder-detals">
+        <h1>Oder History:-</h1>
+        <hr>
+    </div>
+{% include 'baseFiles/messages.html' %}
+{% include 'products/OderSummary.html' %}
+</div>
+
+
+{% endblock dashboard-content %}
+    

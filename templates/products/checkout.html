@@ -1,0 +1,386 @@
+{% extends "baseFiles/base.html" %}
+{% load static %}
+
+
+{% block bodycontent %}
+
+    <!-- page-banner-area-start -->
+    <div class="page-banner-area page-banner-height-2" data-background="{% static 'assets/img/banner/page-banner-4.jpg' %}">
+        <div class="container">
+            {% include 'baseFiles/messages.html' %}
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page-banner-content text-center">
+                        <h4 class="breadcrumb-title">Checkout</h4>
+                        <div class="breadcrumb-two">
+                            <nav>
+                               <nav class="breadcrumb-trail breadcrumbs">
+                                  <ul class="breadcrumb-menu">
+                                     <li class="breadcrumb-trail">
+                                        <a href="index.html"><span>Home</span></a>
+                                     </li>
+                                     <li class="trail-item">
+                                        <span>Checkout</span>
+                                     </li>
+                                  </ul>
+                               </nav> 
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-banner-area-end -->
+
+
+
+    <!-- checkout-area-start -->
+    <section class="checkout-area pb-85 mt-50">
+        <div class='container border-top border-2 border-info mb-10'>
+
+        </div>
+        <div class="container ">
+
+            
+            
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="checkbox-form">
+
+                            <h3>Billing Details</h3>
+
+                            <div class="row">
+                            
+                                <!--SELECTED sHIPPING ADDRESS-->
+                                <div class="seleted-shipping-address mt-5 ">
+        
+                                    {% if selected_shipping_address %}
+                                        <p class="h6" >Shipping Address:</p>
+                                        <p class="h5">
+                                            {{selected_shipping_address}}
+                                            <!-- Add Shiping Address trigger button -->
+                                            <button
+                                            type="button"
+                                            class="btn btn-primary btn-sm"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#showAllShippingAddress"
+                                        >
+                                            Edit <i class='fas fa-edit'></i>
+                                        </button>
+                                        </p>
+
+                                    {% else %}
+
+                                    <div class="btn bnt-danger">
+                                        <!--New Address Button trigger modal -->
+                                        <button
+                                        type="button"
+                                        class="btn btn-primary btn-lg"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalId"
+                                    >
+                                        Add New Address
+                                    </button>
+                                    </div>
+
+
+                                    {% endif %}
+                                        
+                                </div>
+
+                            
+                            <!--Add Shiping Address Modal  -->
+                            <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                            <div
+                                class="modal fade"
+                                id="showAllShippingAddress"
+                                tabindex="-1"
+                                data-bs-backdrop="static"
+                                data-bs-keyboard="false"
+                                
+                                role="dialog"
+                                aria-labelledby="modalTitleId"
+                                aria-hidden="true"
+                            >
+                                <div
+                                    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
+                                    role="document"
+                                >
+
+                                <form action="{% url 'check_out' %}" method="post"> {% csrf_token %}
+
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalTitleId">
+                                                Shiping Addresses
+                                            </h5>
+                                            <button
+                                                type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"
+                                            ></button>
+                                        </div>
+
+                                        <!--SHIPING ADDRESS BODY GOES HERE-->
+                                        <div class="modal-body">
+                                            <div class="addresses">
+                                                
+                                                {% if all_shipping_address %}                              
+                                                {% for shipping_address in all_shipping_address %}
+                                                    <div class="pb-2 pt-2">
+                                                        <input type="radio" id="address{{ shipping_address.id }}" name="selected_address_id" value="{{ shipping_address.id }}">
+                                                        <label for="address{{ shipping_address.id }}" class="h6">{{ shipping_address }}</label>
+                                                    </div>
+                                                {% endfor %}
+                                                {% endif %}
+                                                
+                                                
+                                            </div>
+
+                                            {% comment %} <div class="checkout-form-list">
+                                                {{address_form.as_p}}
+                                            </div> {% endcomment %}
+
+                                            <div class="btn bnt-danger">
+                                                <!--New Address Button trigger modal -->
+                                                <button
+                                                type="button"
+                                                class="btn btn-primary btn-lg"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalId"
+                                            >
+                                                Add New Address
+                                            </button>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button
+                                                type="button"
+                                                class="btn btn-secondary"
+                                                data-bs-dismiss="modal"
+                                            >
+                                                Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <!--New Address Add Modal -->
+                            <div
+                                class="modal fade"
+                                id="modalId"
+                                tabindex="-1"
+                                role="dialog"
+                                aria-labelledby="modalTitleId"
+                                aria-hidden="true"
+                            >
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalTitleId">
+                                                Modal title
+                                            </h5>
+                                            <button
+                                                type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"
+                                            ></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+                                            <div class="checkout-form-list">
+
+                                                <form action="{% url 'save_shipping_address' %}" method="post"> {% csrf_token %}
+                                                    {{address_form.as_p}}
+                                                    <button type="submit" class="btn btn-info">Save Address</button>
+                                                </form>
+                                                
+                                            </div> 
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button
+                                                type="button"
+                                                class="btn btn-secondary"
+                                                data-bs-dismiss="modal"
+                                            >
+                                                Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+
+     
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="your-order mb-30 ">
+                            <h3>Your order</h3>
+                            <div class="your-order-table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-total">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% for item in carts %}
+                                            <tr class="cart_item">
+                                                <td class="product-name">
+                                                    {{item.product.title|truncatewords:6}} <strong class="product-quantity"> × {{item.quantity}}</strong>
+                                                </td>
+                                                <td class="product-total">
+                                                    <span class="amount">${{item.total_product_price | floatformat:2}}</span>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                            
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="cart-subtotal">
+                                            <th>Cart Subtotal</th>
+                                            <td><span class="amount">${{sub_total | floatformat:2}}</span></td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>Shipping</th>
+                                            <td>
+                                                <ul>
+                                                    <li>
+                                                        <input type="radio" name="shipping">
+                                                        <label>
+                                                            Flat Rate: <span class="amount">$7.00</span>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" name="shipping">
+                                                        <label>Free Shipping:</label>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>Order Total</th>
+                                            <td><strong><span class="amount">${{sub_total | floatformat:2}}</span></strong>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            
+                                <div class="order-button-payment mt-20">
+                                </div>
+                                <p><a class="btn btn-danger" href="{% url 'display_payment_details' %}">make payment</a></p>
+
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <hr>
+            <br>
+            <div class="container row">
+                <div class="col-3">
+
+                </div>
+                <div class="col-6 pl-10">
+                    
+                </div>
+
+                <div class="col-3 border-2">
+                    <div class="coupon-info">                       
+                        {% if cupon %}
+                            <form action="" method='GET'>
+                                <p class="checkout-coupon">
+                                <input type="hidden"  value='00' id='remove_cupon' name='remove_cupon'>
+                                <button class="tp-btn-h1" type="submit">Remove Cupon</button>
+                                </p>
+                            </form>
+                        {% else %}
+                            <form action="{% url 'cupon_apply' %}" method='POST'> {% csrf_token %}
+                                <p class="checkout-coupon">
+                                <input type="text" placeholder="cupon_code" id='cupon_code' name='cupon_code'>
+                                <button class="tp-btn-h1" type="submit">Apply Coupon</button>
+                                </p>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!-- checkout-area-end -->
+
+    <!-- cta-area-start -->
+    <section class="cta-area d-ldark-bg pt-55 pb-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="cta-item cta-item-d mb-30">
+                        <h5 class="cta-title">Follow Us</h5>
+                        <p>We make consolidating, marketing and tracking your social media website easy.</p>
+                        <div class="cta-social">
+                            <div class="social-icon">
+                                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="rss"><i class="fas fa-rss"></i></a>
+                                <a href="#" class="dribbble"><i class="fab fa-dribbble"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="cta-item mb-30">
+                        <h5 class="cta-title">Sign Up To Newsletter</h5>
+                        <p>Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                        <div class="subscribe__form">
+                            <form action="#">
+                                <input type="email" placeholder="Enter your email here...">
+                                <button>subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="cta-item mb-30">
+                        <h5 class="cta-title">Download App</h5>
+                        <p>DukaMarket App is now available on App Store & Google Play. Get it now.</p>
+                        <div class="cta-apps">
+                            <div class="apps-store">
+                                <a href="#"><img src="{% static 'assets/img/brand/app_ios.png' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'assets/img/brand/app_android.png' %}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- cta-area-end -->
+
+
+{% endblock bodycontent %}
+    
