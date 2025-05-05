@@ -38,6 +38,6 @@ from django.shortcuts import redirect
 #         sub_total_price = 0
 #         for item in instance.order_items.all():
 #             sub_total_price += item.total_price
-#         instance.sub_total_price = sub_total_price
+#         instance.sub_total_price = sub_total_
         
         
