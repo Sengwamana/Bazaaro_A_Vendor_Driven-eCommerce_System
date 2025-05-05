@@ -5,7 +5,7 @@ from ckeditor.fields import RichTextField
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.core.exceptions import PermissionDenied
 import time
-# Create your models here.
+# Create your models here
 
 
 class Industry(models.Model):
