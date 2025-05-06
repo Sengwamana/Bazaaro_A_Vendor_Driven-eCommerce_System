@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-!bp990y8wp4pt^hm^5%$68jvn@9+@9^_z8(7e+2=lyob9fz!z%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ALLOWED_HOSTS = ['icetech.onrender.com']
+ALLOWED_HOSTS = ALLOWED_HOSTS = ['bazaaro-a-vendor-driven-ecommerce-system.onrender.com']
 
 
 # Application definition
