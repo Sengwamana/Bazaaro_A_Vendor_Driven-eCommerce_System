@@ -5,7 +5,9 @@ Django==5.0
 django-adminlte2==0.4.3
 django-ckeditor==6.7.0
 django-js-asset==2.1.0
+gunicorn==23.0.0
 idna==3.5
+packaging==25.0
 pillow==10.4.0
 python-dotenv==1.0.0
 PyYAML==6.0.1
