@@ -44,7 +44,7 @@ def create_checkout_session(request):
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=403)
 
-
+#ni mubyuzuye
 # Display Payment Details with products
 def display_payment_details(request):
     cart_products = Cart.objects.filter(user=request.user)
