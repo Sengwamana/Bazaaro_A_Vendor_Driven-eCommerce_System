@@ -29,4 +29,4 @@ To utilize this project:
 
 ### screenshooot
 ![image](proje3.PNG)
-
+![image](proje1.PNG)
