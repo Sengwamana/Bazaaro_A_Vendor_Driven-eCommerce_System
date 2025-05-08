@@ -1,3 +1,5 @@
+# shwiriri shwishwi
+
 """
 WSGI config for ecommerce project.
 

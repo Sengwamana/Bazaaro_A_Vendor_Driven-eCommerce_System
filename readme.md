@@ -1,4 +1,4 @@
-# Multi Vendor Ecommerce Project
+# Multi Vendor Ecommerce Projec
 
 Welcome to our Multi Vendor Ecommerce project! This repository contains a powerful platform built on Django that enables multiple user roles and facilitates a seamless shopping experience.
 
@@ -27,6 +27,4 @@ To utilize this project:
 - Run the Server: Launch the Django server to explore the functionalities.
 - Register and Explore: Register as different user roles to experience the distinct dashboards and functionalities. Test the shopping flow, add products, leave reviews, and make payments.
 
-### screenshooot
-![image] (proje3.PNG)
 
