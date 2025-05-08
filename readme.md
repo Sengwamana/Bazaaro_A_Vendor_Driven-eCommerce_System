@@ -28,4 +28,4 @@ To utilize this project:
 - Register and Explore: Register as different user roles to experience the distinct dashboards and functionalities. Test the shopping flow, add products, leave reviews, and make payments.
 
 ### screenshots
- ! [homepage] (https://mail.google.com/mail/u/0?ui=2&ik=0f37fb0fc1&attid=0.3&permmsgid=msg-f:1831542407892443910&th=196af21db57e2306&view=fimg&fur=ip&permmsgid=msg-f:1831542407892443910&sz=s0-l75-ft&attbid=ANGjdJ_A1UQzlDC1bLUa0Ob9wcftQkGyoDauNBsjEMc7AF4b_km-oMv_NC7XC0tPIL_ELr-j026MO-JhTAG3WXHXFtRfKPJGiClrTRgmdzVsX0UnKKp8yH2Wj-E4Bcw&disp=emb&realattid=ii_maexprm00&zw).
+
