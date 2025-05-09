@@ -6,7 +6,7 @@ from products.models import Product, ProductImage, ProductAditionalInformation
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.html import format_html
-# Register your models here.
+# Register your models here,
 
 
 # Vendor Admin Site
