@@ -18,7 +18,7 @@ def home(request):
     hot_products_in_cate = DisplayHotProductInCategories.objects.all()[:4]
     # vendor_user = CustomUser.objects.filter(id=6)
     trending_product = Product.objects.all()
-    trending_division_title = "Trending Product"
+    trending_division_title = "Trending Produ"
     popular_categories = PopularCategories.objects.all()
     context = {
         "carts": carts,
