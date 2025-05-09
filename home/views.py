@@ -27,7 +27,7 @@ def home(request):
         "industry": industry,
         "hot_products_in_cate": hot_products_in_cate,
         "trending_product": trending_product,
-        "trending_division_title": trending_division_title,
+        "trending_division_title": trending_division
         "popular_categories": popular_categories,
     }
     return render(request, "home/home.html", context)
