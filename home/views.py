@@ -23,7 +23,7 @@ def home(request):
     context = {
         "carts": carts,
         "sub_total": format(sub_total, ".2f"),
-        "slider": slider,
+        "slider": 
         "industry": industry,
         "hot_products_in_cate": hot_products_in_cate,
         "trending_product": trending_product,
