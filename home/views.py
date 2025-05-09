@@ -33,11 +33,7 @@ def home(request):
     return render(request, "home/home.html", context)
 
 
-def display_categories_post(request, id):
-    categories = Categories.objects.get(id=id)
-    products = Product.objects.filter(categories=categories)
-    context = {"products": products}
-    return render(request, "categories-post.html", context)
+
 
 
 def test_page(request):
