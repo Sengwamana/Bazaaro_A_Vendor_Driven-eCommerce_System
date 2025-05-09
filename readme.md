@@ -28,5 +28,9 @@ To utilize this project:
 - Register and Explore: Register as different user roles to experience the distinct dashboards and functionalities. Test the shopping flow, add products, leave reviews, and make payments.
 
 ### screenshooot
+the main homepage
 ![image](proje3.PNG)
+
+### second screenshot
+what it shows is the project ui interface
 ![image](proje1.PNG)
