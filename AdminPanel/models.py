@@ -1,3 +1,3 @@
-from django.db import models
+from django.db import mo
 
 # Create your models here.
