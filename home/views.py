@@ -43,9 +43,6 @@ def display_categories_post(request, id):
 def test_page(request):
     return render(request, "strip/checkout.html")
 
-
-
-
 def calculate_order_amount:
     # Replace this constant with a calculation of the order's amount
     # Calculate the order total on the server to prevent
