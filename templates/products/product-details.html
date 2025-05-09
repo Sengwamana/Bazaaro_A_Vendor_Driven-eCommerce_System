@@ -197,7 +197,8 @@
                 <div class="tab-pane fade" id="aditional" role="tabpanel" aria-labelledby="aditional-tab">
                     <div class="product__desc-info">
                         <ul>
-                            x
+                            
+                            {% for i in  product.productaditionalinformation_set.all %}
                                      
                            <li>
                               <h6>{{i.specification}}</h6>
