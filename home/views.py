@@ -21,7 +21,7 @@ def home(request):
     trending_division_title = "Trending Product"
     popular_categories = PopularCategories.objects.all()
     context = {
-        "carts": carts,
+        "carts": 
         "sub_total": format(sub_total, ".2f"),
         "slider": slider,
         "industry": industry,
