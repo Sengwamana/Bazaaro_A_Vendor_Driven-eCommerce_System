@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from accounts.models import CustomUser
-# Create your models here.
+
 
 class VendorStore(models.Model):
     user = models.ForeignKey(CustomUser, verbose_name=("vendor_user"), on_delete=models.CASCADE)     
