@@ -7,7 +7,7 @@ class CustomerAddressForm(forms.ModelForm):
         model = CustomerAddress
         fields = ['state','city','zip_code','street_address','mobile']
         widgets = {
-            'state': forms.TextInput(attrs={'class':'form-cont
+            'state': forms.TextInput(attrs={'class':'form-cont'}),
             'city': forms.TextInput(attrs={'class':'form-control'}),
             'zip_code': forms.NumberInput(attrs={'class':'form-control'}),
             'street_address': forms.Textarea(attrs={'class':'form-control','rows':5,'cols':50}),
