@@ -1,7 +1,6 @@
 {% extends "baseFiles/base.html" %}
 {% load static %}
 
-
 {% block bodycontent %}
 <main>
     <!-- page-banner-area-start -->
@@ -13,16 +12,16 @@
                         <h4 class="breadcrumb-title">Your Cart</h4>
                         <div class="breadcrumb-two">
                             <nav>
-                               <nav class="breadcrumb-trail breadcrumbs">
-                                  <ul class="breadcrumb-menu">
-                                     <li class="breadcrumb-trail">
-                                        <a href="index.html"><span>Home</span></a>
-                                     </li>
-                                     <li class="trail-item">
-                                        <span>Cart</span>
-                                     </li>
-                                  </ul>
-                               </nav> 
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <ul class="breadcrumb-menu">
+                                        <li class="breadcrumb-trail">
+                                            <a href="index.html"><span>Home</span></a>
+                                        </li>
+                                        <li class="trail-item">
+                                            <span>Cart</span>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </nav>
                         </div>
                     </div>
@@ -31,69 +30,80 @@
         </div>
     </div>
     <!-- page-banner-area-end -->
+
     {% include 'baseFiles/messages.html' %}
+
     <!-- cart-area-start -->
     <section class="cart-area pt-120 pb-120">
         <div class="container">
-           <div class="row">
-              <div class="col-12">
+            <div class="row">
+                <div class="col-12">
                     <form action="#">
-                       <div class="table-content table-responsive">
-                          <table class="table">
+
+                        <div class="table-content table-responsive">
+                            <table class="table table-bordered shadow-lg">
                                 <thead>
-                                   <tr>
-                                      <th class="product-thumbnail">Images</th>
-                                      <th class="cart-product-name">Products</th>
-                                      <th class="product-price">Unit Price</th>
-                                      <th class="product-quantity">Quantity</th>
-                                      <th class="product-subtotal">Total</th>
-                                      <th class="product-remove">Remove</th>
-                                   </tr>
+                                    <tr>
+                                        <th class="product-thumbnail">Images</th>
+                                        <th class="cart-product-name">Products</th>
+                                        <th class="product-price">Unit Price</th>
+                                        <th class="product-quantity">Quantity</th>
+                                        <th class="product-subtotal">Total</th>
+                                        <th class="product-remove">Remove</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                    {% if carts %}   
+                                    {% if carts %}
                                     {% for product in carts %}
-                
-                                   <tr>
-                                      <td class="product-thumbnail"><a href="#"><img src="{{product.product.productimage_set.first.image}}" alt=""></a></td>
-                                      <td class="product-name"><a href="#">{{product.product.title}}</a></td>
-                                      <td class="product-price"><span class="amount">${{product.product.discounted_price}}</span></td>
-                                      <td class="product-quantity">
+                                    <tr>
+                                        <td class="product-thumbnail">
+                                            <a href="#">
+                                                <img src="{{ product.product.productimage_set.first.image }}" alt="product image" class="cart-img">
+                                            </a>
+                                        </td>
+                                        <td class="product-name"><a href="#">{{ product.product.title }}</a></td>
+                                        <td class="product-price"><span class="amount">${{ product.product.discounted_price }}</span></td>
+                                        <td class="product-quantity">
                                             <div class="d-inline-flex">
-                                                <div class='btn btn-outline-info minus' onclick="change_cart_quantity('{{product.id}}',2)">-</div>
-                                                <p class="mx-2 cart-quantity" id="product-quantity-{{product.id}}" >{{product.quantity}}</p>
-                                                <div class="btn btn-outline-info plus-{{product.id}}" onclick="change_cart_quantity('{{product.id}}',1)">+</div>
-                                                
+                                                <button class="btn btn-outline-info minus" onclick="change_cart_quantity('{{ product.id }}', 2)">-</button>
+                                                <p class="mx-2 cart-quantity" id="product-quantity-{{ product.id }}">{{ product.quantity }}</p>
+                                                <button class="btn btn-outline-info plus" onclick="change_cart_quantity('{{ product.id }}', 1)">+</button>
                                             </div>
-                                      </td>
-                                      <td class="product-subtotal"><span class="amount" id='total_product_price-{{product.id}}'>$ {{product.total_product_price | floatformat:2}}</span></td>
-                                      <td class="product-remove"><a href="#" onclick="change_cart_quantity('{{product.id}}',0)"><i class="fa fa-times"></i></a></td>
-                                   </tr>
-                                   {% endfor %}
-                                   {% endif %}
+                                        </td>
+                                        <td class="product-subtotal">
+                                            <span class="amount" id="total_product_price-{{ product.id }}">$ {{ product.total_product_price | floatformat:2 }}</span>
+                                        </td>
+                                        <td class="product-remove">
+                                            <a href="#" onclick="change_cart_quantity('{{ product.id }}', 0)">
+                                                <i class="fa fa-times-circle text-danger"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
                                 </tbody>
-                          </table>
-                       </div>
+                            </table>
+                        </div>
 
-                       <div class="row justify-content-end">
-                          <div class="col-md-5">
+                        <div class="row justify-content-end">
+                            <div class="col-md-5">
                                 <div class="cart-page-total">
-                                   <h2>Cart totals</h2>
-                                   <ul class="mb-20">
-                                      <li>Subtotal <span id='sub_total_price'>${{sub_total | floatformat:2}}</span></li>
-                                      {% comment %} <li>Total <span>${{sub_total | floatformat:2}}</span></li> {% endcomment %}
-                                   </ul>
-                                   <a class="tp-btn-h1" href="{% url 'check_out' %}">Proceed to checkout</a>
+                                    <h2>Cart Totals</h2>
+                                    <ul class="mb-20">
+                                        <li>Subtotal <span id="sub_total_price">${{ sub_total | floatformat:2 }}</span></li>
+                                    </ul>
+                                    <a class="tp-btn-h1" href="{% url 'check_out' %}">
+                                        Proceed to Checkout
+                                    </a>
                                 </div>
-                          </div>
-                       </div>
+                            </div>
+                        </div>
                     </form>
-              </div>
-           </div>
+                </div>
+            </div>
         </div>
-     </section>
-     <!-- cart-area-end -->
+    </section>
+    <!-- cart-area-end -->
 
     <!-- cta-area-start -->
     <section class="cta-area d-ldark-bg pt-55 pb-10">
@@ -102,7 +112,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cta-item cta-item-d mb-30">
                         <h5 class="cta-title">Follow Us</h5>
-                        <p>We make consolidating, marketing and tracking your social media.</p>
+                        <p>Stay connected and follow us for updates!</p>
                         <div class="cta-social">
                             <div class="social-icon">
                                 <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
@@ -118,41 +128,35 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cta-item mb-30">
                         <h5 class="cta-title">Sign Up To Newsletter</h5>
-                        <p>Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                        <p>Get a new discount coupon every Saturday!</p>
                         <div class="subscribe__form">
                             <form action="#">
                                 <input type="email" placeholder="Enter your email here...">
-                                <button>subscribe</button>
+                                <button>Subscribe</button>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="cta-item mb-30">
-                        <h5 class="cta-title">Download App</h5>
-                        <p>Bazaaro Market App is now available on App Store & Google Play. Download It Now.</p>
+                        <h5 class="cta-title">Download Our App</h5>
+                        <p>Download the Bazaaro Market App from the App Store & Google Play.</p>
                         <div class="cta-apps">
                             <div class="apps-store">
-                                <a href="#"><img src="{% static 'assets/img/brand/app_ios.png' %}" alt=""></a>
-                                <a href="#"><img src="{% static 'assets/img/brand/app_android.png' %}" alt=""></a>
+                                <a href="#"><img src="{% static 'assets/img/brand/app_ios.png' %}" alt="iOS"></a>
+                                <a href="#"><img src="{% static 'assets/img/brand/app_android.png' %}" alt="Android"></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
     <!-- cta-area-end -->
 
 </main>
 {% endblock bodycontent %}
 
-
 {% block staticfiles_js %}
-
 <script src="{% static 'customjs/cart.js' %}"></script>
-    
 {% endblock staticfiles_js %}
-    
-    
