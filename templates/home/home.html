@@ -1,14 +1,61 @@
 {% extends "baseFiles/base.html" %}
 
 {% block pagetitle %}
-    Multi Vendor E - Commerce
+    Multi Vendor E-Commerce | Home
 {% endblock pagetitle %}
-    
 
 {% block bodycontent %}
     {% include 'baseFiles/messages.html' %}
-    {% include 'home/front-slider.html' %}
-    {% include 'home/trending-product.html' %}
-    {% include 'home/bottom-area.html' %}
+
+    <!-- Greeting -->
+    <section class="text-center my-6 animate__animated animate__fadeInDown">
+        <h2 class="text-3xl font-bold">
+            {{ greeting }} {% if request.user.is_authenticated %}{{ request.user.first_name }}{% else %}Visitor{% endif %} 👋
+        </h2>
+        <p class="text-gray-600">Welcome to the best place for deals, trends, and top products!</p>
+    </section>
+
+    <!-- Front Slider -->
+    <div class="animate__animated animate__fadeIn">
+        {% include 'home/front-slider.html' %}
+    </div>
+
+    <!-- Deal of the Day Section -->
+    {% if deal_of_the_day %}
+    <section class="bg-yellow-100 border border-yellow-300 rounded-xl p-6 mx-4 my-8 shadow-md animate__animated animate__zoomIn">
+        <h3 class="text-2xl font-semibold text-yellow-800 mb-4">🎯 Deal of the Day</h3>
+        <div class="flex items-center space-x-6">
+            <img src="{{ deal_of_the_day.image.url }}" alt="{{ deal_of_the_day.name }}" class="w-32 h-32 rounded-lg shadow-md object-cover">
+            <div>
+                <h4 class="text-xl font-bold">{{ deal_of_the_day.name }}</h4>
+                <p class="text-lg text-gray-700">${{ deal_of_the_day.price }}</p>
+                <a href="{% url 'product_detail' deal_of_the_day.id %}" class="mt-2 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded">
+                    Grab Now 🚀
+                </a>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Trending Products -->
+    <div class="animate__animated animate__fadeInUp">
+        {% include 'home/trending-product.html' %}
+    </div>
+
+    <!-- Popular Categories / Bottom Area -->
+    <div class="animate__animated animate__fadeInUp">
+        {% include 'home/bottom-area.html' %}
+    </div>
+
+    <!-- Optional: Newsletter Signup -->
+    <section class="bg-indigo-100 py-10 mt-12 text-center">
+        <h3 class="text-2xl font-semibold mb-4">📬 Join Our Newsletter</h3>
+        <p class="text-gray-700 mb-6">Get updates on new arrivals, discounts, and more!</p>
+        <form class="flex justify-center gap-4 max-w-xl mx-auto">
+            <input type="email" placeholder="Enter your email" class="p-3 rounded-md w-full max-w-sm border border-gray-300">
+            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-md font-medium">
+                Subscribe
+            </button>
+        </form>
+    </section>
 {% endblock bodycontent %}
-    
