@@ -25,7 +25,7 @@ To utilize this project:
 - Installation: Install the required dependencies. Set up the database and migrations.
 - Configuration: Configure settings such as Stripe API keys, site settings, and email configurations.
 - Run the Server: Launch the Django server to explore the functionalities.
-- Register and Explore: Register as different user roles to experience the distinct dashboards and functionalities. Test the shopping flow, add products, leave reviews, and make payments.
+- Register and Explore: Register as different user roles to experience the distinct dashboards and functionalities. Test the shopping flow, add products, leave reviews, and make payments
 
 ### screenshooot
 the main homepage
